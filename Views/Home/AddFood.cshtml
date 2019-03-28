@@ -1,0 +1,85 @@
+@model Food
+<html>
+<style>
+    html,body{
+            background-image: url("/images/paper.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            
+        }   
+    #link a {
+        display: inline-block;
+        text-align: center;
+         font-size: 170%;
+        color: black;
+        
+    }
+    #link {
+        margin-left: 43%;
+    }
+</style>
+
+<body>
+    <div id="link">
+    <a href="/">Chef | </a>
+    <a href="Food">Dishes</a>
+</div>
+<div class="back">
+<a href="/">Go Back</a>
+</div>
+<div id = "form">
+    <h1>Add a Chef: </h1>
+    <form asp-action="createfood" asp-controller="Home" method = "POST">
+      <input asp-for="Name" type="text" class="form-control" name = "Name" placeholder="Name">
+      <span asp-validation-for="Name"></span>
+      
+      <br>
+      
+      <input asp-for="Calories" type="int" class="form-control" name = "Calories" placeholder="Calories">
+      <span asp-validation-for="Calories"></span>
+      <br>
+      <p>Tastiness: </p>
+       <span asp-validation-for="Tastiness"></span>
+       
+      <select asp-for="Tastiness">
+
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+
+<p>Chef's Name</p>
+<select asp-for="ChefId">
+
+    @foreach(var x in ViewBag.Tasty)
+    {
+        <option value="@x.ChefId">@x.FirstName</option>
+    } 
+</select>
+      
+      <br>
+    <p>Description:</p>
+    <span asp-validation-for="Description"></span>
+    <textarea name ="Description"></textarea>
+    <br>
+    <br>
+    <input type = "submit" value="Add Dish">
+    <br>
+
+    </div>
+      
+    
+  
+</form>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

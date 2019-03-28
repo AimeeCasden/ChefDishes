@@ -1,0 +1,71 @@
+<style>
+    html body{
+        background-image: url("images/paper.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+     #link {
+        margin-left: 43%;
+    }
+     #link a {
+        display: inline-block;
+        text-align: center; 
+    }
+    #link a {
+        font-size: 170%;
+        color: black;
+    }
+    .morelinks a{
+        font-size: 100%;
+        display: inline;
+        margin-left: 46%;
+        color: black;      
+    }
+   
+</style>
+
+<body>
+
+<div id="link">
+    <a href="/">Chef | </a>
+    <a href="Food">Dishes</a>
+    <br>
+</div>
+<br>
+<div class="morelinks">
+<a href="/addfood">Add A Dish</a>
+<br><br>
+</div>
+<div class="back">
+<a href="/">Go Back</a>
+</div>
+<br>
+<h4>Take a Look At Some Dishes: </h4>
+<br><br>
+<table class="table table-hover">
+  
+  <thead>
+    <tr>
+      <th scope="col">Name of Dish</th>
+      <th scope="col">Calories</th>
+      <th scope="col">Tastiness</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(var x in ViewBag.TotalFood)
+    {
+      <tr>
+      <th scope="col">@x.Name</th>
+      
+      <th scope="col">@x.Calories</th>
+      <th scope="col">@x.Tastiness</th>
+      <th scope="col">@x.Description</th>
+      
+    
+    </tr>
+    }
+      
+  </tbody>
+</table>
+</body>

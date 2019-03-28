@@ -1,0 +1,62 @@
+@model Chef
+<html>
+<style>
+    html,body{
+            background-image: url("/images/paper.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            
+        }   
+    #link a {
+        display: inline-block;
+        text-align: center;
+         font-size: 170%;
+        color: black;
+        
+    }
+    #link {
+        margin-left: 43%;
+    }
+</style>
+
+<body>
+    <div id="link">
+    <a href="/">Chef | </a>
+    <a href="Food">Dishes</a>
+</div>
+<div class="back">
+<a href="/">Go Back</a>
+</div>
+<div id = "form">
+    <h1>Add a Chef: </h1>
+    <form asp-action="CreateChef" asp-controller="Home" method = "POST">
+      <input asp-for="FirstName" type="text" class="form-control" name = "FirstName" placeholder="First Name">
+      <span asp-validation-for="FirstName"></span>
+      
+      <br>
+      
+      <input asp-for="LastName" type="text" class="form-control" name = "LastName" placeholder="Last Name">
+      <span asp-validation-for="LastName"></span>
+      <br>
+      <input asp-for="Birthday" type="date" class="form-control" name = "Birthday" placeholder="Birthday">
+      <span asp-validation-for="Birthday"></span>
+      <br>
+    <br>
+    <input type = "submit" value="Add Chef">
+    <br>
+
+    </div>
+      
+    
+  
+</form>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
